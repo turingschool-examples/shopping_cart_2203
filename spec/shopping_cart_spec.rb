@@ -15,5 +15,11 @@ describe ShoppingCart do
 
       expect(cart.name).to eq("King Soopers")
     end
+
+    it 'ShoppingCart has a capacity in itegers' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+
+      expect(cart.capacity).to eq(30)
+    end
   end
 end
