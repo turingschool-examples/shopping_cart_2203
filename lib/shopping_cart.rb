@@ -36,4 +36,14 @@ class ShoppingCart
     return full
   end
 
+  def products_by_category(category)
+    products_in_category = []
+    @products.each do |product|
+      if product.category == category
+        products_in_category << product
+      end
+    end
+    return products_in_category
+  end
+
 end
