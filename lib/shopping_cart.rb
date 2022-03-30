@@ -14,4 +14,9 @@ class ShoppingCart
   def details
     details_of_cart = { name: @name, capacity: @capacity }
   end
+
+  def total_number_of_products
+    quantities = @products.map { |product| product.quantity }
+    quantities.sum
+  end
 end
