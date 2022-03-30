@@ -1,8 +1,8 @@
 class ShoppingCart
-  attr_reader :cart, :products, :details
-  def initialize(cart, products, details)
-    @cart = cart
+  attr_reader :name, :capacity, :products
+  def initialize(name, products)
+    @name = name
+    @capacity = capacity
     @products = []
-    @details = details
   end
 end

@@ -27,4 +27,11 @@ class Product
   def total_price2
   @product2 = (4.50 * 2)
   end
+  def is_hoarded?
+    if @quantity >= 12
+      true
+    else
+      false
+    end
+  end
 end
