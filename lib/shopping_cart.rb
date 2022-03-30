@@ -36,4 +36,16 @@ class ShoppingCart
     sorted = @products.sort_by { |product| product.quantity }
     sorted.reverse
   end
+
+  def product_breakdown
+    breakdown = {}
+    @products.each do |product|
+      if breakdown[product.category].nil?
+        breakdown[product.category] = [product]
+      else
+        breakdown[product.category] << product
+      end
+    end
+    breakdown
+  end
 end
