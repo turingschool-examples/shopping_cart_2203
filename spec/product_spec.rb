@@ -3,7 +3,7 @@ require './lib/product'
 
 describe Product do
   context 'Iteration 1' do
-    xit 'Product exists' do
+    it 'Product exists' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
       expect(product).to be_an_instance_of Product
@@ -30,7 +30,7 @@ describe Product do
     xit 'Product has a quantity' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
-      expect(product.quantity).to eq 10
+      expect(product.quantity).to eq '10'
     end
 
     xit 'Product can calculate total price' do
