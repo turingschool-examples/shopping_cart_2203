@@ -41,4 +41,9 @@ class ShoppingCart
     end
     return sort_out
   end
+
+  def percentage_occupied
+    div = total_number_of_products.to_f / @capacity
+    (div * 100).round(2)
+  end
 end
