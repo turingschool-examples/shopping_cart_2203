@@ -50,5 +50,8 @@ describe ShoppingCart do
     cart.add_product(product2)
     cart.add_product(product3)
     expect(cart.is_full?).to eq(false)
+    product4 = Product.new(:produce, 'apples', 0.99, '20')
+    cart.add_product(product4)
+    expect(cart.is_full?).to eq(true)
   end
 end
