@@ -62,7 +62,6 @@ class ShoppingCart
     breakdown.keys.each do |key|
       breakdown[key] = products_by_category(key)
     end
-    puts breakdown
     return breakdown
   end
 
