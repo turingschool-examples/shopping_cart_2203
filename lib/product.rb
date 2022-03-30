@@ -8,6 +8,8 @@ class Product
     @quantity = quantity
 
   end
-
+  def total_price
+    (@unit_price * @quantity.to_f)
+  end
 
 end
