@@ -12,4 +12,11 @@ class Product
     @unit_price * @quantity
   end
 
+  def is_hoarded?
+    if @quantity >= 5
+      true
+    else
+      false
+    end
+  end
 end
