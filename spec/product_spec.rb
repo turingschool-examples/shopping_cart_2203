@@ -15,19 +15,19 @@ describe Product do
       expect(product.category).to eq :paper
     end
 
-    xit 'Product has a name' do
+    it 'Product has a name' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
       expect(product.name).to eq 'toilet paper'
     end
 
-    xit 'Product has a unit price' do
+    it 'Product has a unit price' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
       expect(product.unit_price).to eq 3.70
     end
 
-    xit 'Product has a quantity' do
+    it 'Product has a quantity' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
       expect(product.quantity).to eq 10
