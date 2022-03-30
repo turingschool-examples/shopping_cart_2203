@@ -64,6 +64,6 @@ describe ShoppingCart do
     cart.add_product(product3)
     product4 = Product.new(:produce, 'apples', 0.99, '20')
     cart.add_product(product4)
-    expect(cart.products_by_category(:paper)).to eq([product, product3])
+    expect(cart.products_by_category(:paper)).to eq([product1, product3])
   end
 end
