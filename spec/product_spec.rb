@@ -30,10 +30,10 @@ describe Product do
     it 'Product has a quantity' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
-      expect(product.quantity).to eq "10"
+      expect(product.quantity).to eq 10
     end
 
-    xit 'Product can calculate total price' do
+    it 'Product can calculate total price' do
       product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
       product2 = Product.new(:meat, 'chicken', 4.50, '2')
 
