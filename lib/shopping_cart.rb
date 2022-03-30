@@ -14,4 +14,12 @@ class ShoppingCart
     @products << product
   end
 
+  def details
+    details_hash = {
+      name: @name,
+      capacity: @capacity
+    }
+    return details_hash
+  end
+
 end

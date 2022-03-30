@@ -28,5 +28,11 @@ describe ShoppingCart do
 
       expect(cart.products).to eq [product1, product2]
     end
+
+    it 'Shopping Cart returns details in a hash' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+
+      expect(cart.details).to eq ({name: "King Soopers", capacity: 30})
+    end
   end
 end
