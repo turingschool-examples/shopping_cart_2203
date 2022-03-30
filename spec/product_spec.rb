@@ -30,7 +30,7 @@ describe Product do
     it 'Product has a quantity' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
 
-      expect(product.quantity).to eq '10'
+      expect(product.quantity).to eq 10
     end
 
     it 'Product can calculate total price' do
@@ -39,6 +39,19 @@ describe Product do
 
       expect(product1.total_price).to eq 37.0
       expect(product2.total_price).to eq 9.0
+    end
+
+    it "Product can be hoarded" do
+      product = Product.new(:paper, 'toilet paper', 3.70, '10')
+      expect(product.hoard).to eq 30
+    end
+
+    it "Checks to see if product is hoarded" do
+      product = Product.new(:paper, 'toilet paper', 3.70, '10')
+      expect(product.is_hoarded?).to eq(false)
+      product.hoard
+      expect(product.is_hoarded?).to eq(true)
+
     end
   end
 end
