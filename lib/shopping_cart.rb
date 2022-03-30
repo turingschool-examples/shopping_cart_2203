@@ -46,4 +46,8 @@ class ShoppingCart
     div = total_number_of_products.to_f / @capacity
     (div * 100).round(2)
   end
+
+  # def sorted_products_by_quantity
+  #   @products.sort { |product| product.quantity }
+  # end
 end
