@@ -14,4 +14,10 @@ describe ShoppingCart do
     expect(cart.capacity).to eq(30)
     expect(cart.products).to eq([])
   end
+  it 'can add products' do
+    cart = ShoppingCart.new('King Soopers', '30items')
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    cart.add_product(product1)
+  end
 end
