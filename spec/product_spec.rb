@@ -44,6 +44,8 @@ describe Product do
     it 'can tell if hoarded or not' do
       product = Product.new(:paper, 'toilet paper', 3.70, '10')
       expect(product.is_hoarded?).to eq(false)
+      product.hoard
+      expect(product.is_hoarded?).to eq(true)
     end
   end
 end
