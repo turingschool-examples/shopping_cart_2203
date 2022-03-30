@@ -9,9 +9,15 @@ class ShoppingCart
     @products = []
   end
 
-  def add_product
-    @products << Product.new()
+  def add_product(product)
+    @products << product
+  end
 
+  def details
+    cart_details = {}
+    cart_details[:name] = @name
+    cart_details[:capacity] = @capacity
+    cart_details
   end
 
 

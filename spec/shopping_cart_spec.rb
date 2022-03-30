@@ -17,9 +17,16 @@ describe ShoppingCart do
   end
 
   it "Can add items to the cart" do
-    
+    cart = ShoppingCart.new("King Soopers", "30 items")
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    cart.add_product(product1)
+    cart.add_product(product2)
+    expect(cart.products).to eq([product1, product2])
   end
 
-
-
+  it "Can read cart details (in array)" do
+    cart = ShoppingCart.new("King Soopers", "30 items")
+    expect(cart.details).to eq({name: "King Soopers", capacity: 30})
+  end
 end
