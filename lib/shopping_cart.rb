@@ -52,4 +52,9 @@ class ShoppingCart
     return percent
   end
 
+  def sorted_products_by_quantity
+    sorted = @products.sort {|a, b| a.quantity <=> b.quantity}
+    return sorted
+  end
+
 end
