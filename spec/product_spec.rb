@@ -46,5 +46,14 @@ describe Product do
 
       expect(product1.is_hoarded?).to eq(false)
     end
+
+    it "is considered hoarded after it's hoarded." do
+      product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+      product1.hoard
+      product2 = Product.new(:meat, 'chicken', 4.50, '2')
+
+      expect(product1.is_hoarded?).to eq(true)
+      expect(product2.is_hoarded?).to eq(false)
+    end
   end
 end
