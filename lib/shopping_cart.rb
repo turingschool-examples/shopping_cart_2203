@@ -31,4 +31,14 @@ class ShoppingCart
       false
     end
   end
+
+  def products_by_category(cat)
+    sort_out = []
+    products.each do |item|
+      if item.category == cat
+        sort_out << item
+      end
+    end
+    return sort_out
+  end
 end
