@@ -3,7 +3,7 @@ require './lib/product'
 require './lib/shopping_cart'
 
 describe ShoppingCart do
-  context 'Iteration ' do
+  context 'Iteration 2' do
     it 'ShoppingCart exists' do
       cart = ShoppingCart.new("King Soopers", "30items")
 
@@ -20,6 +20,12 @@ describe ShoppingCart do
       cart = ShoppingCart.new("King Soopers", "30items")
 
       expect(cart.capacity).to eq(30)
+    end
+
+    it 'ShoppingCart has no products by default' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+
+      expect(cart.products).to eq([])
     end
   end
 end
