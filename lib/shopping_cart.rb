@@ -22,4 +22,12 @@ class ShoppingCart
     return details_hash
   end
 
+  def total_number_of_products
+    total = 0
+    @products.each do |product|
+      total += product.quantity
+    end
+    return total
+  end
+
 end
