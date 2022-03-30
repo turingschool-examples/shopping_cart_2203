@@ -57,4 +57,13 @@ class ShoppingCart
     return sorted
   end
 
+  def product_breakdown
+    breakdown = {meat: [], paper: [], produce: []}
+    breakdown.keys.each do |key|
+      breakdown[key] = products_by_category(key)
+    end
+    puts breakdown
+    return breakdown
+  end
+
 end
