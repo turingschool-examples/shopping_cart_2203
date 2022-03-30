@@ -16,4 +16,28 @@ class ShoppingCart
     return name, capacity
   end
 
+  def is_full?
+    @qnumber = 0
+    products.each do |prod|
+      @qnumber += prod.quantity
+    end
+    if @qnumber > capacity
+        return true
+    else
+        return false
+    end
+  end
+
+  def products_by_category(cat)
+    prods_by_cat = []
+    products.each do |prod|
+      if prod.category == (cat)
+        prods_by_cat << prod
+      end
+    end
+    return prods_by_cat
+
+  end
+
+
 end
