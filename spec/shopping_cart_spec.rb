@@ -46,39 +46,73 @@ describe ShoppingCart do
     end
   end
   context 'Iteration 3' do
-    before :each do
-      @cart = ShoppingCart.new("King Soopers", "30items")
+
+    it 'ShoppingCart can return the total number of products stored in it' do
+      cart = ShoppingCart.new("King Soopers", "30items")
       product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
       product2 = Product.new(:meat, 'chicken', 4.50, '2')
       product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
 
-      @cart.add_product(product1)
-      @cart.add_product(product2)
-      @cart.add_product(product3)
+      cart.add_product(product1)
+      cart.add_product(product2)
+      cart.add_product(product3)
 
-      it 'ShoppingCart can return the total number of products stored in it' do
+      expect(cart.total_number_of_products).to eq(13)
+    end
+    it 'ShoppingCart is not full when total is below capacity' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+      product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+      product2 = Product.new(:meat, 'chicken', 4.50, '2')
+      product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
 
-        expect(@cart.total_number_of_products).to eq(13)
-      end
-      it 'ShoppingCart is not full when total is below capacity' do
+      cart.add_product(product1)
+      cart.add_product(product2)
+      cart.add_product(product3)
 
-        expect(@cart.is_full?).to eq(false)
-      end
-      it 'ShoppingCart is full when total is above capacity' do
-        product4 = Product.new(:produce, 'apples', 0.99, '20')
+      expect(cart.is_full?).to eq(false)
+    end
+    it 'ShoppingCart is full when total is above capacity' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+      product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+      product2 = Product.new(:meat, 'chicken', 4.50, '2')
+      product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
 
-        @cart.add_product(product4)
+      cart.add_product(product1)
+      cart.add_product(product2)
+      cart.add_product(product3)
+      product4 = Product.new(:produce, 'apples', 0.99, '20')
+      cart.add_product(product4)
 
-        expect(@cart.is_full?).to eq(true)
-      end
+      expect(cart.is_full?).to eq(true)
+    end
 
-      it 'ShoppingCart can sort products by category' do
-        product4 = Product.new(:produce, 'apples', 0.99, '20')
+    it 'ShoppingCart can sort products by category' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+      product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+      product2 = Product.new(:meat, 'chicken', 4.50, '2')
+      product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
 
-        @cart.add_product(product4)
+      cart.add_product(product1)
+      cart.add_product(product2)
+      cart.add_product(product3)
+      product4 = Product.new(:produce, 'apples', 0.99, '20')
+      cart.add_product(product4)
 
-        expect(@cart.products_by_category(:paper)).to eq([product1, product3])
-      end
+      expect(cart.products_by_category(:paper)).to eq([product1, product3])
+    end
+  end
+
+  context 'Iteration 4' do
+    it 'ShoppingCart can display how full it is in a percentage' do
+      cart = ShoppingCart.new("King Soopers", "30items")
+      product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+      product2 = Product.new(:meat, 'chicken', 4.50, '2')
+      product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+
+      cart.add_product(product1)
+      cart.add_product(product2)
+      cart.add_product(product3)
+      expect(cart.percentage_occupied).to eq(43.33)
     end
   end
 end
