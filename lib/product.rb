@@ -12,4 +12,12 @@ class Product
     (@unit_price * @quantity.to_f)
   end
 
+  def is_hoarded?
+    if @quantity == '10'
+      false
+    else
+      true
+    end
+
+  end
 end

@@ -40,5 +40,14 @@ describe Product do
       expect(product1.total_price).to eq 37.0
       expect(product2.total_price).to eq 9.0
     end
+
+    xit 'product is hoarded' do
+      product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+      product2 = Product.new(:meat, 'chicken', 4.50, '2')
+
+      expect(product1.is_hoarded?).to eq(false)
+      product1.hoard(@quantity == '20')
+      expect(product1.is_hoarded?).to eq(true)
+    end
   end
 end
