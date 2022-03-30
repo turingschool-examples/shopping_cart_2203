@@ -8,10 +8,12 @@ class ShoppingCart
     @name = name
     @capacity = capacity.to_i
     @products = []
+    @total_products = 0
   end
 
   def add_product(product)
     @products << product
+    @total_products += product.quantity
   end
 
   def details
@@ -23,11 +25,15 @@ class ShoppingCart
   end
 
   def total_number_of_products
-    total = 0
-    @products.each do |product|
-      total += product.quantity
+    return @total_products
+  end
+
+  def is_full?
+    full = false
+    if @total_products > @capacity
+      full = true
     end
-    return total
+    return full
   end
 
 end
