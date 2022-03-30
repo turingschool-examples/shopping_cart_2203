@@ -76,7 +76,7 @@ RSpec.describe ShoppingCart do
     expect(cart.products_by_category(:paper)).to eq([product1, product3])
   end
 
-  xit "can determine capacity percentage" do
+  it "can determine capacity percentage" do
     cart = ShoppingCart.new("King Soopers", "30items")
     product1 = Product.new(:paper, "toilet paper", 3.70, "10")
     product2 = Product.new(:meat, "chicken", 4.50, "2")
@@ -87,7 +87,7 @@ RSpec.describe ShoppingCart do
     expect(cart.percentage_occupied).to eq 43.33
   end
 
-  xit "can sort products by quantity" do
+  it "can sort products by quantity" do
     cart = ShoppingCart.new("King Soopers", "30items")
     product1 = Product.new(:paper, "toilet paper", 3.70, "10")
     product2 = Product.new(:meat, "chicken", 4.50, "2")
@@ -102,7 +102,7 @@ RSpec.describe ShoppingCart do
     )
   end
 
-  xit "can group products by category" do
+  it "can group products by category" do
     cart = ShoppingCart.new("King Soopers", "30items")
     product1 = Product.new(:paper, "toilet paper", 3.70, "10")
     product2 = Product.new(:meat, "chicken", 4.50, "2")
