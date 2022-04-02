@@ -2,7 +2,7 @@ class ShoppingCart
     attr_reader :name, :capacity, :products
     def initialize(name, capacity)
         @name = name
-        @capacity = capacity
+        @capacity = capacity.to_i
         @products = []
     end
 
@@ -15,19 +15,19 @@ class ShoppingCart
         products.each do |product|
             total_quantity << product.quantity
         end
-        total_quantity.inject(:+)
+        total_quantity.sum
     end
 
     def is_full?
-        if @products.count <= 3 
-            false
-        else
-            true
-        end
+        total_number_of_products >= @capacity 
     end
 
     def details
-        details = {name: "King Soopers", capacity: 30}
+        # cart_details = {}
+        # cart_details[:name] = @name
+        # cart_details[:capacity] = name
+        # cart_details
+        cart_details = {name: @name, capacity: @capacity.to_i}
     end 
 
     def products_by_category(category)
@@ -38,5 +38,9 @@ class ShoppingCart
                 end
             end
             product_type
+    end
+
+    def percentage_occupied
+        products.quantity / capacity * 100
     end
 end
